@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="login">
+        <div class="login-triangle"></div>
+        
+        <h2 class="login-header">Log in</h2>
+      
+        <form #frmLogin="ngForm" class="login-container" (ngSubmit)="onRegister(frmLogin)">
+            <p>
+                <input type="text" name="name" placeholder="Name" ngModel required>
+            </p>
+            <p>
+                <input type="email" name="email" placeholder="Email" ngModel required>
+            </p>
+            <p>
+                <input type="password" name="password" placeholder="Password" ngModel required>
+            </p>
+            <p>
+                <select name="role" ngModel required>
+                    <option [value]="item" *ngFor="let item of role">{{item}}</option>
+                </select>                
+            </p>
+            <p>
+                <input type="submit" value="Register">
+            </p>
+        </form>
+    </div>
+</div>
