@@ -1,0 +1,14 @@
+<div class="container">
+    <div *ngFor="let table of tables" class="mt-5 boxes">
+        <div *ngIf="table.status == '1'">
+            <div class="box bussy" (click)="details(table.id)">
+                <i class="bi bi-clipboard-check"></i> {{table.name| titlecase}}
+            </div>
+        </div>
+        <div *ngIf="table.status == '0'" (click)="details(table.id)">
+            <div class="box">
+                <i class="bi bi-clipboard"></i> {{table.name| titlecase}}
+            </div>
+        </div>
+    </div>
+</div>

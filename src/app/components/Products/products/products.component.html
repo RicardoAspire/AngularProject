@@ -1,1 +1,64 @@
-<p>products works!</p>
+<div class="row">
+    <h1 style="text-align:center; margin-bottom: 2%;">Administration of products</h1>
+    <form [formGroup]="productForm" (ngSubmit)="addProduct(productForm)">
+        <div class="row"align="center">
+            <div class="col-6" align="right">
+                <div class="card bg-light mt-3" align="left" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <h5 class="card-title">Create product</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" formControlName="name">
+                            <small *ngIf="productForm?.get('name')?.invalid" class="text-danger">Name is required</small>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="description">description</label>
+                            <textarea class="form-control" formControlName="description" rows="1"></textarea>
+                            <small *ngIf="productForm?.get('description')?.invalid" class="text-danger">description is required</small>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="categories">Categories</label>
+                            <select formControlName="category_id" class="form-control">
+                                <option value="" disabled selected hidden>Categories</option>
+                                <option *ngFor="let category of categories" value="{{category.id}}" selected>{{category.category_name}}</option>
+                            </select>
+                            <small *ngIf="productForm?.get('category_id')?.invalid" class="text-danger">Category is required</small>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="price">price</label>
+                            <input type="number" class="form-control" formControlName="price" min="1">
+                            <small *ngIf="productForm?.get('price')?.invalid" class="text-danger">price is required</small>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="stock">Stock</label>
+                            <input type="number" class="form-control" formControlName="stock" min="1">
+                            <small *ngIf="productForm?.get('stock')?.invalid" class="text-danger">Stock is required</small>
+                        </div><br>
+                        <button type="submit" class="btn btn-success" [disabled]="productForm.invalid">Create</button> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-6" align="left">
+                <div class="card border-danger mt-3" align="left" style="max-width: 18rem;">
+                    <div class="card-header text-danger">
+                        <h5 class="card-title">Delete product</h5>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="deleteProductForm" (ngSubmit)="deleteProduct(deleteProductForm)">
+                            <div class="form-group">
+                                <label for="categories">Products</label>
+                                <select formControlName="productId" class="form-control">
+                                    <option value="" disabled selected hidden>Products</option>
+                                    <option *ngFor="let product of products" value="{{product.id}}" selected>{{product.name}}</option>
+                                </select>
+                            </div><br>
+                            <button type="submit" class="btn btn-danger" [disabled]="deleteProductForm.invalid">Delete</button> 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

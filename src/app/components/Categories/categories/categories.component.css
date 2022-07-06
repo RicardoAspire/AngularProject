@@ -1,0 +1,24 @@
+.categories{
+    margin-top: 10px;
+    width: 200px;
+    height: 800px;
+    border-right: 1px solid gray;
+}
+.category{
+    background-color: rgb(240, 61, 30);
+    margin: 5px;
+    border-radius: 3px;
+}
+.category a{
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+.category:hover{
+    background-color: rgb(122, 5, 5);
+    cursor: pointer;
+}
+.category p:valid {
+    background-color: #FEB139;
+}

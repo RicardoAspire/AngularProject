@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './components/auth/guards/auth.guard';
+import { RoleGuard } from './components/auth/guards/role.guard';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { BillsDetailsComponent } from './components/Bills/bills-details/bills-details.component';
@@ -19,23 +21,24 @@ import { UsersDetailsComponent } from './components/Users/users-details/users-de
 import { UsersComponent } from './components/Users/users/users.component';
 
 const routes: Routes = [
-  {path:'register', component: RegisterComponent},
+  {path:'', component: LoginComponent},
   {path:'login', component: LoginComponent},
-  {path:'bills', component: BillsComponent},
-  {path:'bills-details', component: BillsDetailsComponent},
-  {path:'categories', component: CategoriesComponent},
-  {path:'categories-admin', component: CategoriesAdminComponent},
-  {path:'kitchen', component: KitchenComponent},
-  {path:'menu/:categoryId', component: MenuComponent},
-  {path:'orders', component: OrdersComponent},
-  {path:'orders-details', component: OrderDetailsComponent},
-  {path:'products', component: ProductsComponent},
-  {path:'stock', component: StockComponent},
-  {path:'tables', component: TablesComponent},
-  {path:'tickets', component: TicketsComponent},
-  {path:'tickets-details', component: TicketDetailsComponent},
-  {path:'users', component: UsersComponent},
-  {path:'user-details', component: UsersDetailsComponent}
+  {path:'register', component: RegisterComponent, canActivate:[RoleGuard], data: {expectedRole: 'Admin'}},
+  {path:'bills', component: BillsComponent, canActivate:[RoleGuard], data: {expectedRole: 'Admin'}},
+  {path:'bills-details/:startDate/:endDate', component: BillsDetailsComponent, canActivate:[RoleGuard], data: {expectedRole: 'Admin'}},
+  {path:'categories', component: CategoriesComponent, canActivate:[RoleGuard], data: {expectedRole: 'Waiter'}},
+  {path:'categories-admin', component: CategoriesAdminComponent, canActivate:[RoleGuard], data: {expectedRole: 'Admin'}},
+  {path:'kitchen', component: KitchenComponent, canActivate:[RoleGuard], data: {expectedRole: 'Kitchen'}},
+  {path:'menu/:categoryId', component: MenuComponent, canActivate:[RoleGuard], data: {expectedRole: 'Waiter'}},
+  {path:'orders', component: OrdersComponent, canActivate:[RoleGuard], data: {expectedRole: 'Waiter'}},
+  {path:'orders-details/:id', component: OrderDetailsComponent, canActivate:[RoleGuard], data: {expectedRole: 'Waiter'}},
+  {path:'products', component: ProductsComponent, canActivate:[RoleGuard], data: {expectedRole: 'Admin'}},
+  {path:'stock', component: StockComponent, canActivate:[RoleGuard], data: {expectedRole: 'Admin'}},
+  {path:'tables', component: TablesComponent, canActivate:[RoleGuard], data: {expectedRole: 'Waiter'}},
+  {path:'tickets', component: TicketsComponent, canActivate:[RoleGuard], data: {expectedRole: 'Admin'}},
+  {path:'ticket-details/:startDate/:endDate', component: TicketDetailsComponent, canActivate:[RoleGuard], data: {expectedRole: 'Admin'}},
+  {path:'users', component: UsersComponent, canActivate:[RoleGuard], data: {expectedRole: 'Admin'}},
+  {path:'user-details', component: UsersDetailsComponent, canActivate:[RoleGuard], data: {expectedRole: 'Admin'}}
 ];
 
 @NgModule({

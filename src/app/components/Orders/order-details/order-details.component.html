@@ -1,0 +1,41 @@
+<div class="container">
+    <table *ngIf="orders" class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Comments</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Status</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orders"> 
+                <td scope="row" *ngIf="item.status != 2">{{item.id}}</td>
+                <td scope="row" *ngIf="item.status != 2">{{item.name}}</td>
+                <td scope="row" *ngIf="item.status != 2">{{item.amount}}</td>
+                <td scope="row" *ngIf="item.status != 2">{{item.comments}}</td>
+                <td scope="row" *ngIf="item.status != 2">${{item.price}}</td>
+                <td scope="row" *ngIf="item.status == 0">Pendient</td>
+                <td scope="row" *ngIf="item.status == 1" class="ready">Ready</td>
+                <td scope="row" *ngIf="item.status != 2">${{item.amount*item.price}}</td>
+            </tr>
+        </tbody>
+      </table> 
+      <div *ngIf="orders">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                <b>Total products: {{totalProducts}}</b>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Total: ${{total}}</p>
+                <button class="btn btn-success" (click)="saveCheck()">Save</button>
+            </div>
+            </div>   
+      </div>
+      <div *ngIf="!orders" style="text-align:center; margin-top: 10px;">
+        <h2>No orders</h2>
+      </div>
+</div>

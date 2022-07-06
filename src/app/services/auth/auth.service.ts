@@ -1,59 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt/';
 import { UserI } from 'src/app/models/user';
-import { JwtResponseI } from 'src/app/models/jwt-response';
-import { tap,observable,BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  AUTH_SERVER : string = 'http://localhost:3000';
-  authSubject = new BehaviorSubject(false);
-  private token: any = ''; 
 
-  constructor(private httpClient: HttpClient) { }
-  
-  register(user: UserI){
-    return this.httpClient.post<JwtResponseI>(`${this.AUTH_SERVER}/register`,user)
-    .pipe(tap(
-      (res:JwtResponseI)=>{
-        if(res){
-          //Save token      
-          this.saveToken(res.dataUser.accessTocken, res.dataUser.expiresIn);
-        }
-      }
-    ))
-  }
-  
-  login(user: UserI){
-    return this.httpClient.post<JwtResponseI>(`${this.AUTH_SERVER}/login`,user)
-    .pipe(tap(
-      (res:JwtResponseI)=>{
-        if(res){
-          //Save token      
-          this.saveToken(res.dataUser.accessTocken, res.dataUser.expiresIn);
-        }
-      }
-    ))
+  constructor(
+    private httpClient: HttpClient,
+    private jwtHelper: JwtHelperService
+  ) { }
+
+  signIn(user:any){
+    return this.httpClient.post('/api/login',user)
   }
 
-  logOut(){
-    this.token = '';
-    localStorage.removeItem('ACCESS_TOKEN');
-    localStorage.removeItem('EXPIRES_IN');
-  }
-
-  private saveToken(token:string, expiresIn:string):void{
-    localStorage.setItem("ACCESS_TOKEN",token);
-    localStorage.setItem("EXPIRES_IN",expiresIn);
-    this.token = token;
-  }
-
-  private getToken():string{  
-    if(!this.token){
-      this.token = localStorage.getItem("ACCESS_TOKEN");
+  isAuth():boolean{
+    const token = localStorage.getItem('token');
+    if(!token || this.jwtHelper.isTokenExpired(token)){
+      return false;
     }
-    return this.token
+    return true;
   }
+
+  register(user: UserI): Observable<UserI>{
+    const bodyRequest = {
+      userName: user.userName,
+      password: user.password,
+      role: user.role
+    };
+    return this.httpClient.post<UserI>('/api/register',bodyRequest);
+  }
+
+  
 }

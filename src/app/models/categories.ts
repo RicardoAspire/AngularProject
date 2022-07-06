@@ -1,4 +1,7 @@
 export interface categories{
-    Id: string, 
-    Name: string
+    id: string, 
+    category_name: string
+}
+export interface newCategory{
+    category_name: string
 }

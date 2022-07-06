@@ -1,1 +1,36 @@
-<p>users-details works!</p>
+<div class="container">
+    <div class="userDetails">
+        <h1>Edit user</h1>
+        <hr>
+        <form #userForm="ngForm">
+            <div class="form-group">
+                <label for="userName">User name</label>
+                <input type="text" name="userName" class="form-control" [(ngModel)]="user.userName" value="{{user.userName}}" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="row">
+                    <div class="col-10">
+                        <input [type]=" showPassword ? 'text' : 'password' " name="password" class="form-control" [(ngModel)]="user.password" value="{{user.password}}" required>
+                       </div>
+                    <div class="col-1" style="margin-left:-20px">
+                        <button *ngIf="showPassword" class="btn btn-light" (click)='showHidePassword()'><i class="bi bi-eye"></i></button>
+                        <button *ngIf="!showPassword" class="btn btn-light" (click)='showHidePassword()'><i class="bi bi-eye-slash"></i></button>    
+                    </div>
+                </div>
+                <br>
+            </div>
+            <br>
+                <label for="role">Role</label>
+                <p>
+                    <select name="role" name="role" class="custom-select" [(ngModel)]="user.role" required>
+                        <option value="" disabled selected hidden>Role</option>
+                        <option [value]="item" placeholder="Select"  *ngFor="let item of role">{{item}}</option>
+                    </select>        
+                </p>
+            <br>       
+            <button class="btn btn-success" (click)="updateUser()">Update</button>        
+        </form> 
+    </div>
+</div>

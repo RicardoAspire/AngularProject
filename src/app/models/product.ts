@@ -1,8 +1,15 @@
 export interface product{
-    Id: number,
-    Category_Id: number, 
-    Name: string, 
-    Description: string,
-    Price: number, 
-    Stock: number
+    id: number,
+    category_id: number, 
+    name: string, 
+    description: string,
+    price: number, 
+    stock: number
+}
+export interface newProduct{
+    category_id: number, 
+    name: string, 
+    description: string,
+    price: number, 
+    stock: number
 }

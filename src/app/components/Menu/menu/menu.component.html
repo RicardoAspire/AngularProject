@@ -1,0 +1,55 @@
+<div class="col-2" style="float:left">
+    <app-categories></app-categories>
+</div>
+<div class="col-12">
+    <div class="categories">
+        <div class="menuTitle">
+            <p>{{categorySelected[0].category_name}}</p>
+        </div>
+        <hr>
+        <form [formGroup]="orderForm" (ngSubmit)="addOrder(orderForm)">
+            <div class="row">
+                <div class="col-12">
+                        <div class="form-group">
+                            <h2>Product</h2>
+                            <h4>{{productSelected.name}}</h4>
+                            <input type="text" formControlName="product_id" value="{{productSelected.id}}" hidden>
+                            <p *ngIf="orderForm?.get('product_id')?.invalid" class="text-warning">Add a product</p><br>
+                        </div>
+                        <div class="form-group">
+                            <h2>amount</h2>
+                            <input type="number" class="form-control" formControlName="amount" min="1"><br>
+                            <small *ngIf="orderForm?.get('amount')?.invalid" class="text-danger">amount is required</small><br>
+                        </div>
+                        <div class="form-group">
+                            <h2>Table</h2>
+                            <select formControlName="table_id"  class="form-control">
+                                <option value="" disabled selected hidden>Choose a table</option>
+                                <option *ngFor="let table of tables" value="{{table.id}}" selected>{{table.name}}</option>
+                            </select>
+                            <p *ngIf="orderForm?.get('table_id')?.invalid" class="text-warning">Table is required</p><br>
+                        </div>
+                        <div class="form-group">
+                            <h2>comments</h2>
+                            <textarea class="form-control rounded-0" class="form-control" formControlName="comments" rows="2"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success" [disabled]="orderForm.invalid">
+                            <i class="bi bi-check-square"></i>
+                        </button> 
+                </div>
+            </div>
+            <ul>
+                <div *ngFor="let element of products" class="category" (click)="addProduct(element.id, element.name)">
+                    <div class="middle">
+                    <label>
+                        <input type="radio" formControlName="product_id" value="{{element.id}}" >
+                        <div class="front-end box">
+                            <span>{{element.name}}</span>
+                        </div>
+                    </label>
+                    </div>
+                </div>
+            </ul>
+        </form>
+    </div>
+</div>

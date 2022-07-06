@@ -1,27 +1,25 @@
 <div class="container">
     <div class="login">
-        <div class="login-triangle"></div>
-        
-        <h2 class="login-header">Log in</h2>
+        <i class="bi bi-person-plus" id="icon"></i>
+        <h2 class="login-header">Register</h2>
       
         <form #frmLogin="ngForm" class="login-container" (ngSubmit)="onRegister(frmLogin)">
             <p>
-                <input type="text" name="name" placeholder="Name" ngModel required>
+                <input type="text" name="userName" class="form-control" placeholder="Username" ngModel required>
             </p>
             <p>
-                <input type="email" name="email" placeholder="Email" ngModel required>
+                <input type="password" name="password" class="form-control" placeholder="Password" ngModel required>
             </p>
             <p>
-                <input type="password" name="password" placeholder="Password" ngModel required>
-            </p>
-            <p>
-                <select name="role" ngModel required>
-                    <option [value]="item" *ngFor="let item of role">{{item}}</option>
+                <select name="role" class="custom-select" ngModel required>
+                    <option value="" disabled selected hidden>Role</option>
+                    <option [value]="item" placeholder="Select" *ngFor="let item of role">{{item}}</option>
                 </select>                
             </p>
             <p>
-                <input type="submit" value="Register">
+                <input type="submit" class="form-control btn btn-primary" value="Register">
             </p>
         </form>
     </div>
 </div>
+

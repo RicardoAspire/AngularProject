@@ -1,0 +1,35 @@
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Table</th>
+            <th scope="col">Comments</th>
+            <th scope="col">State</th>
+          </tr>
+        </thead>
+        <tbody>
+              
+          <tr *ngFor="let order of orders">
+            <th scope="row" *ngIf="order.status == 0">{{order.id}}</th>
+            <th scope="row" *ngIf="order.status == 1" class="ready">{{order.id}}</th>
+            <th scope="row" *ngIf="order.status == 0">{{order.name}}</th>
+            <th scope="row" *ngIf="order.status == 1" class="ready">{{order.name}}</th>
+            <th scope="row" *ngIf="order.status == 0">{{order.amount}}</th>
+            <th scope="row" *ngIf="order.status == 1" class="ready">{{order.amount}}</th>
+            <th scope="row" *ngIf="order.status == 0">{{order.table_id}}</th>
+            <th scope="row" *ngIf="order.status == 1" class="ready">{{order.table_id}}</th>
+            <th scope="row" *ngIf="order.status == 0">{{order.comments}}</th>
+            <th scope="row" *ngIf="order.status == 1" class="ready">{{order.comments}}</th>
+            <th scope="row" *ngIf="order.status == 1" class="ready">
+                <button class="btn btn-danger" (click)="orderReady(0,order.id)">Cancel</button>
+            </th>
+            <th scope="row" *ngIf="order.status == 0">
+                <button class="btn btn-success" (click)="orderReady(1,order.id)">Ready</button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+</div>

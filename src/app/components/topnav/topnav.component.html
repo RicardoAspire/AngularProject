@@ -1,15 +1,53 @@
-<div class="container">
-    <nav class="navbar navbar-dark bg-dark">
-        <a routerLink="/login" class="navbar-brand">Login</a>
-        <a routerLink="/register" class="navbar-brand">Register</a>
-        <a routerLink="/bills" class="navbar-brand">Bills</a>
-        <a routerLink="/kitchen" class="navbar-brand">Kitchen</a>
-        <a routerLink="/menu" class="navbar-brand">Menu</a>
-        <a routerLink="/orders" class="navbar-brand">Orders</a>
-        <a routerLink="/products" class="navbar-brand">Products</a>
-        <a routerLink="/stock" class="navbar-brand">Stock</a>
-        <a routerLink="/tables" class="navbar-brand">Tables</a>
-        <a routerLink="/tickets" class="navbar-brand">Tickets</a>
-        <a routerLink="/users" class="navbar-brand">Users</a>
-    </nav>
+<div class="containerNavBar">
+        <div *ngIf="auth == true">
+            <div *ngIf="role == 'Admin'">
+                <nav class="navbar">
+                    <h1>
+                        <i class="bi bi-person-badge-fill"></i>                                           
+                        {{userName}}
+                    </h1>
+                    <a routerLink="/menu/1" class="navbar-brand">Menú</a>
+                    <a routerLink="/kitchen" class="navbar-brand">Kitchen</a>
+                    <a routerLink="/orders" class="navbar-brand">Orders</a>
+                    <a routerLink="/stock" class="navbar-brand">Stock</a>
+                    <a routerLink="/tables" class="navbar-brand">Tables</a>
+                    <a routerLink="/categories-admin" class="navbar-brand">Categories</a>
+                    <a routerLink="/products" class="navbar-brand">Products</a>
+                    <a routerLink="/bills" class="navbar-brand">Bills</a>
+                    <a routerLink="/tickets" class="navbar-brand">Tickets</a>
+                    <a routerLink="/users" class="navbar-brand">Users</a>
+                    <a routerLink="/register" class="navbar-brand">Register</a>
+                    <button (click)="logOut()" class="btn btn-warning">
+                        Log Out 
+                        <i class="bi bi-box-arrow-right icono"></i>
+                    </button>
+                </nav>  
+            </div>
+            <div *ngIf="role == 'Kitchen'">
+                <nav class="navbar">
+                    <h1>
+                        <i class="bi bi-person-badge-fill"></i>                                           
+                        {{userName}}
+                    </h1>
+                    <a routerLink="/kitchen" class="navbar-brand">Kitchen</a>
+                    <button (click)="logOut()" class="btn btn-warning">Log Out</button>
+                </nav>
+            </div>
+            <div *ngIf="role == 'Waiter'">
+                <nav class="navbar">
+                    <h1>
+                        <i class="bi bi-person-badge-fill"></i>                                           
+                        {{userName}}
+                    </h1>
+                    <a routerLink="/orders" class="navbar-brand">Orders</a>
+                    <a routerLink="/tables" class="navbar-brand">Tables</a>
+                    <button (click)="logOut()" class="btn btn-warning">Log Out</button>
+                </nav>
+            </div>
+        </div>
+        <div *ngIf="auth == false">
+            <nav class="navbar">
+                <a routerLink="/login" class="navbar-brand">Login</a>
+            </nav>        
+        </div>
 </div>

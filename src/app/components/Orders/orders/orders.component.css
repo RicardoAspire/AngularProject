@@ -1,0 +1,21 @@
+.bussy{
+    background-color: red;
+    color: white;
+}
+.box{
+    width: 400px;
+    height: 200px;
+    text-align: center;
+    padding-top: 15%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 4px;
+    font-size:40px;
+}
+.box:hover{
+    border: 2px solid tomato;
+    cursor: pointer;
+}
+.boxes{
+    float: left;
+    margin: 10px;
+}

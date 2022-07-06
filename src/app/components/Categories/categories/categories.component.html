@@ -1,0 +1,9 @@
+<div class="categories">
+    <ul>
+        <div *ngFor="let element of categoriesComponent" class="category">
+            <p>
+                <a [routerLink]="['/menu', element.id]"  routerLinkActive="active">{{element.category_name}}</a>
+            </p>
+        </div>
+    </ul>
+</div>

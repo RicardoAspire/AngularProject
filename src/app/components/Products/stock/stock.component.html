@@ -1,1 +1,42 @@
-<p>stock works!</p>
+<div class="container"><br>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">
+        <h3>Select a category</h3>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <label for="categories">Categories</label>
+          <select class="form-control" (change)="productsFromCategory()" #categorySelected>
+              <option value="" disabled selected hidden>Select</option>
+              <option *ngFor="let category of categories" value="{{category.id}}">{{category.category_name}}</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="categories">Product</label>
+          <select class="form-control" (change)="productToRestock()" #productSelected>
+              <option value="" disabled selected hidden>Select</option>
+              <option *ngFor="let product of products" value="{{product.id}}">{{product.name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div *ngIf="productToChange.name != ''" class="boxes">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{productToChange.name}}</h5><hr>
+              <h6 class="card-subtitle mb-2 text-muted">Description: {{productToChange.description}}</h6>
+              <b class="card-text">Stock: {{productToChange.stock}}</b>
+              <form [formGroup]="stockForm" (ngSubmit)="addStock(stockForm, productToChange.id, productToChange.stock)">
+                <div class="form-group">
+                    <input type="number" class="form-control stockCard" min="1" value="1" formControlName="stock_amount">
+                    <input type="submit" value="Add" class="btn btn-success">
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>

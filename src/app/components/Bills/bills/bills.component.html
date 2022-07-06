@@ -1,0 +1,47 @@
+<div class="row" style="justify-content:center">
+    <div class="col-4 mt-3" align="right">
+        <div class="card" align="center">
+            <div class="card-header">
+                <h5>Create bill</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]='billsForm' (ngSubmit)="createBill(billsForm)">
+                    <label for="description">Description</label>
+                    <textarea name="description" 
+                                id="description" 
+                                cols="1" 
+                                rows="3"
+                                formControlName="description"
+                                class="form-control"
+                                ></textarea>
+                    <label for="cost">Cost</label>
+                    <input type="number" formControlName="cost" class="form-control"><br>
+                    <button type="submit" class="btn btn-success">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 mt-3" align="left">
+        <div class="card" align="center">
+            <div class="card-header">
+                <h5>Search Bills</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col" style="border-right: 1px solid black">
+                        <form [formGroup]="dateForm" (ngSubmit)="searchByDates(dateForm)">
+                            <label for="dateStart">Date start</label>
+                            <input type="date" id="start" name="start" formControlName="startDate" class="form-control"><br>
+                            <label for="dateEnd">Date end</label>
+                            <input type="date" id="end" name="end" formControlName="endDate" class="form-control"><br>
+                            <button type="submit" class="btn btn-success">Search</button>
+                        </form>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-success" [routerLink]="['/bills-details',startDate,'0']"  routerLinkActive="active">Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

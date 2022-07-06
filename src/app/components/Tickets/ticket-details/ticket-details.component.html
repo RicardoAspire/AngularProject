@@ -1,1 +1,22 @@
-<p>ticket-details works!</p>
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Total</th>
+            <th scope="col">Date</th>
+            <th scope="col">Hour</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of allTickets">
+            <th scope="row">{{ticket.id}}</th>
+            <td>{{ticket.name}}</td>
+            <td>${{ticket.total}}</td>
+            <td>{{ticket.date}}</td>
+            <td>{{ticket.hour}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

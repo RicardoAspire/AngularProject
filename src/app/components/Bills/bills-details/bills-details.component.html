@@ -1,0 +1,22 @@
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Description</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Date</th>
+            <th scope="col">Hour</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bill of allBills">
+            <th scope="row">{{bill.id}}</th>
+            <td>{{bill.description}}</td>
+            <td>${{bill.amount}}</td>
+            <td>{{bill.date | date }}</td>
+            <td>{{bill.hour}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

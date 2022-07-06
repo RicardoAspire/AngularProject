@@ -1,4 +1,10 @@
+import { Overlay } from '@angular/cdk/overlay';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TablesService } from 'src/app/services/tables/tables.service';
 
 import { TablesComponent } from './tables.component';
 
@@ -8,7 +14,19 @@ describe('TablesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TablesComponent ]
+      imports:[
+        HttpClientTestingModule,
+      ],
+      declarations:[
+        TablesComponent
+      ],
+      providers: [
+        TablesService,
+        FormBuilder,
+        MatSnackBar,
+        Overlay
+      ],
+      schemas:[NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

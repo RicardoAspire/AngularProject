@@ -1,0 +1,100 @@
+.category{
+    margin: 5px;
+    float: left;
+}
+.category p{
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+.category:hover{
+    cursor: pointer;
+}
+input{
+    margin-top: 25%;
+}
+.form-group{
+    width: 20%;
+    float: left;
+    margin-right: 15px;
+}
+.form-control{
+    margin-top: 0px;
+}/* 
+button{
+    margin-top: 25px;
+}
+ */
+
+
+@import url("https://fonts.googleapis.com/css?family=Inter:400'");
+ html {
+	 background-color: #1a1a1a;
+	 overflow: hidden;
+}
+ .middle {
+	 width: 100%;
+	 text-align: center;
+	/* Made by */
+}
+ .middle h1 {
+	 font-family: "Inter", sans-serif;
+	 color:white;
+}
+ .middle input[type="radio"] {
+	 display: none;
+}
+ .middle input[type="radio"]:checked + .box {
+	 background-color: #FEB139;
+}
+ .middle input[type="radio"]:checked + .box span {
+	 color: white;
+	 transform: translateY(30px);
+}
+ .middle input[type="radio"]:checked + .box span:before {
+	 transform: translateY(0px);
+	 opacity: 1;
+}
+ .middle .box {
+	 width: 150px;
+	 height: 150px;
+	 background-color: #F55353;
+	 transition: all 250ms ease;
+	 will-change: transition;
+	 display: inline-block;
+	 text-align: center;
+	 cursor: pointer;
+	 position: relative;
+	 font-family: "Inter", sans-serif;
+	 font-weight: 6000;
+     border-radius: 5px;
+	 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+ .middle .box:active {
+	 transform: translateY(10px);
+}
+ .middle .box span {
+	 position: absolute;
+	 transform: translate(0, 40px);
+	 left: 0;
+	 right: 0;
+	 transition: all 300ms ease;
+	 font-size: 1.5em;
+	 user-select: none;
+	 color: white;
+}
+ .middle p {
+	 color: white;
+	 font-family: "Inter", sans-serif;
+	 font-weight: 400;
+}
+ .middle p a {
+	 text-decoration: underline;
+	 font-weight: bold;
+	 color: white;
+}
+.menuTitle{
+	text-align: center;
+	font-size: 45px;
+}

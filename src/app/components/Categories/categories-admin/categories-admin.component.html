@@ -1,0 +1,49 @@
+<div class="row">
+    <h1 style="text-align:center; margin-bottom: 2%;">Administration of categories</h1>
+        <div class="row" align="center">
+            <div class="col-8" style="margin:0px auto">
+                <div class="card bg-light mt-3" align="center">
+                    <div class="card-header">
+                        <h5 class="card-title">Create category</h5>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="categoryForm" (ngSubmit)="addCategory(categoryForm)">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="name" style="float:left">Category name</label>
+                                        <input type="text" class="form-control" formControlName="category_name" style="float:left">
+                                        <small *ngIf="categoryForm?.get('category_name')?.invalid" class="text-danger" style="float:left">Category name is required</small>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <br>
+                                    <button type="submit" class="btn btn-success" [disabled]="categoryForm.invalid" style="float:left">Create</button> 
+                                </div>
+                            </div>
+                        </form><hr><br>
+                        <div class="row">
+                            <table class="table">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Categories</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let category of categories">
+                                    <th scope="row">{{category.id}}</th>
+                                    <td>{{category.category_name}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger" (click)="deleteCategory(category.id)"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
