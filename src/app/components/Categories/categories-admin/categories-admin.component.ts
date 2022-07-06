@@ -47,6 +47,9 @@ export class CategoriesAdminComponent implements OnInit {
     }
     this.categoriesService.createCategory(data).subscribe((data)=>{
       this._snackBar.open('Category created',undefined, {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['snackbar-success'],
         duration: 2000
       })
       this.ngOnInit()
@@ -59,6 +62,9 @@ export class CategoriesAdminComponent implements OnInit {
     console.log(id);
     this.categoriesService.deleteCategory(id).subscribe((data)=>{
       this._snackBar.open('Category deleted',undefined, {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['snackbar-success'],
         duration: 2000
       })
       this.ngOnInit()

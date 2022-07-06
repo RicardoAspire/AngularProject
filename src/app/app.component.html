@@ -1,4 +1,15 @@
-<app-topnav></app-topnav>
-<div class="container">
-    <router-outlet></router-outlet>
+<div class="row">
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+            <div style="height:auto">
+                <app-topnav></app-topnav>
+            </div>
+        </mat-drawer>
+        <div class="sidenav-content">
+            <button type="button" mat-button class="btn btn-dark" (click)="drawer.toggle()">
+                <i class="bi bi-list"></i>
+            </button>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-container>
 </div>

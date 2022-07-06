@@ -1,22 +1,24 @@
 <div class="containerNavBar">
         <div *ngIf="auth == true">
             <div *ngIf="role == 'Admin'">
-                <nav class="navbar">
+                <nav class="navbar d-flex flex-column">
                     <h1>
                         <i class="bi bi-person-badge-fill"></i>                                           
                         {{userName}}
                     </h1>
-                    <a routerLink="/menu/1" class="navbar-brand">Menú</a>
-                    <a routerLink="/kitchen" class="navbar-brand">Kitchen</a>
-                    <a routerLink="/orders" class="navbar-brand">Orders</a>
-                    <a routerLink="/stock" class="navbar-brand">Stock</a>
-                    <a routerLink="/tables" class="navbar-brand">Tables</a>
-                    <a routerLink="/categories-admin" class="navbar-brand">Categories</a>
-                    <a routerLink="/products" class="navbar-brand">Products</a>
-                    <a routerLink="/bills" class="navbar-brand">Bills</a>
-                    <a routerLink="/tickets" class="navbar-brand">Tickets</a>
-                    <a routerLink="/users" class="navbar-brand">Users</a>
-                    <a routerLink="/register" class="navbar-brand">Register</a>
+                    <ul>
+                        <li><a routerLink="/menu/1" class="navbar-brand"><i class="bi bi-clipboard"></i> Menú</a></li>
+                        <li><a routerLink="/kitchen" class="navbar-brand"><i class="bi bi-egg-fried"></i> Kitchen</a></li>
+                        <li><a routerLink="/orders" class="navbar-brand"><i class="bi bi-list-ol"></i> Orders</a></li>
+                        <li><a routerLink="/stock" class="navbar-brand"><i class="bi bi-box"></i> Stock</a></li>
+                        <li><a routerLink="/tables" class="navbar-brand"><i class="bi bi-grid-3x2-gap"></i> Tables</a></li>
+                        <li><a routerLink="/categories-admin" class="navbar-brand"><i class="bi bi-collection"></i> Categories</a></li>
+                        <li><a routerLink="/products" class="navbar-brand"><i class="bi bi-credit-card-2-front"></i> Products</a></li>
+                        <li><a routerLink="/bills" class="navbar-brand"><i class="bi bi-cash"></i> Bills</a></li>
+                        <li><a routerLink="/tickets" class="navbar-brand"><i class="bi bi-wallet2"></i> Tickets</a></li>
+                        <li><a routerLink="/users" class="navbar-brand"><i class="bi bi-people"></i> Users</a></li>
+                        <li><a routerLink="/register" class="navbar-brand"><i class="bi bi-person-plus"></i> Register</a></li>
+                    </ul>
                     <button (click)="logOut()" class="btn btn-warning">
                         Log Out 
                         <i class="bi bi-box-arrow-right icono"></i>
@@ -29,7 +31,9 @@
                         <i class="bi bi-person-badge-fill"></i>                                           
                         {{userName}}
                     </h1>
-                    <a routerLink="/kitchen" class="navbar-brand">Kitchen</a>
+                    <ul>
+                        <li><a routerLink="/kitchen" class="navbar-brand"><i class="bi bi-egg-fried"></i> Kitchen</a></li>
+                    </ul>
                     <button (click)="logOut()" class="btn btn-warning">Log Out</button>
                 </nav>
             </div>
@@ -39,8 +43,10 @@
                         <i class="bi bi-person-badge-fill"></i>                                           
                         {{userName}}
                     </h1>
-                    <a routerLink="/orders" class="navbar-brand">Orders</a>
-                    <a routerLink="/tables" class="navbar-brand">Tables</a>
+                    <ul>
+                        <li><a routerLink="/orders" class="navbar-brand"><i class="bi bi-list-ol"></i> Orders</a></li>
+                        <li><a routerLink="/tables" class="navbar-brand"><i class="bi bi-basket"></i> Tables</a></li>
+                    </ul>
                     <button (click)="logOut()" class="btn btn-warning">Log Out</button>
                 </nav>
             </div>

@@ -104,6 +104,9 @@ export class MenuComponent implements OnInit {
       })
     this.ordersService.createOrder(data).subscribe((data)=>{
       this._snackBar.open('Order created',undefined, {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['snackbar-success'],
         duration: 2000
       })
       this.ngOnInit()

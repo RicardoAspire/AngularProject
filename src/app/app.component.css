@@ -1,0 +1,8 @@
+.example-container{
+    min-height: 600px;
+    overflow-x: hidden;
+}
+.sidenav-content{
+    width: auto;
+    overflow-x: hidden;
+}

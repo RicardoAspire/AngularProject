@@ -62,6 +62,9 @@ export class StockComponent implements OnInit {
     this.productsService.addStock(data, id).subscribe(
       (success)=>{
         this._snackBar.open('Stock added',undefined, {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: ['snackbar-success'],
           duration: 2000
         })
         this.ngOnInit();

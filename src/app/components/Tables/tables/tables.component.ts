@@ -52,6 +52,9 @@ export class TablesComponent implements OnInit {
     .subscribe(
       (success)=>{
         this._snackBar.open('Table added',undefined, {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: ['snackbar-success'],
           duration: 2000
         })
         this.ngOnInit();
@@ -67,6 +70,9 @@ export class TablesComponent implements OnInit {
     .subscribe(
       (success)=>{
         this._snackBar.open('Table deleted',undefined, {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: ['snackbar-success'],
           duration: 2000
         })
         this.ngOnInit();

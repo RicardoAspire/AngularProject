@@ -72,6 +72,9 @@ export class UsersDetailsComponent implements OnInit {
       .subscribe(
         (success)=>{
           this._snackBar.open('User updated',undefined, {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['snackbar-success'],
             duration: 2000
           })
           this.router.navigateByUrl('/users');
@@ -81,6 +84,9 @@ export class UsersDetailsComponent implements OnInit {
       )
     }else{
       this._snackBar.open('The user already exists',undefined, {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['snackbar-error'],
         duration: 2000
       })
     }

@@ -24,7 +24,6 @@ export class OrdersComponent implements OnInit {
       .subscribe(
         (success)=>{
           this.tables = success;
-          console.log("Las teibles",this.tables)
         },(error)=>{
           console.log(error)
         }

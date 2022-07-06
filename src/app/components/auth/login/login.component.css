@@ -6,12 +6,15 @@
   border-radius: 5px;
   margin-top: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background: rgba(204, 204, 204, 0.5);
 }
 #icon{
   font-size: 100px;
+  color: white;
 }
 h2{
   margin-bottom: 10%;
+  color: white;
 }
 input{
   margin: 0px auto;
@@ -20,4 +23,20 @@ input{
 .buttonOk{
   background-color: #143F6B;
   color: white;
+}
+.loginContainer{
+  height: 600px;
+
+  background: url('../../../../assets/fondo.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.title{
+  text-align: center;
+  font-size: 70px;
+  color: #FFFFFF;
+  background: #b8b8b8;
+  text-shadow: 4px 3px 0 #7A7A7A;
 }

@@ -1,8 +1,9 @@
 .navbar{
-    padding-left: 5%;
-    padding-right: 5%;
     background-color: #143F6B;
+    display: flex;
+    padding: 10px;
 }
+
 .navbar a, h1, i{
     color:white;
 }
@@ -11,7 +12,17 @@ margin-left: 10px;
 padding-bottom: 4px;
 }
 #icon{
-    margin-right: 10px;
-    font-size: 40px;
-    margin-bottom: 5px;
+margin-right: 10px;
+font-size: 40px;
+margin-bottom: 5px;
+}
+.navbar a:hover{
+    color: tomato;
+}
+.navbar ul {
+    list-style:none;
+    margin-left: -10px;
+}
+.navbar ul li{
+    margin-bottom: 12px;
 }

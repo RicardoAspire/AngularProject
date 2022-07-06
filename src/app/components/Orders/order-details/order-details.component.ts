@@ -69,6 +69,9 @@ export class OrderDetailsComponent implements OnInit {
     .subscribe(
       (success)=>{
         this._snackBar.open('Ticket saved',undefined, {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: ['snackbar-success'],
           duration: 2000
         })
       },(error)=>{

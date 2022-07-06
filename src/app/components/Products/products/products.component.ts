@@ -67,6 +67,9 @@ export class ProductsComponent implements OnInit {
     }
     this.productsService.createProduct(data).subscribe((data)=>{
       this._snackBar.open('Product created',undefined, {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['snackbar-success'],
         duration: 2000
       })
       this.ngOnInit()
@@ -79,6 +82,9 @@ export class ProductsComponent implements OnInit {
     console.log(id);
     this.productsService.deleteProduct(id).subscribe((data)=>{
       this._snackBar.open('Product deleted',undefined, {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['snackbar-success'],
         duration: 2000
       })
       this.ngOnInit()

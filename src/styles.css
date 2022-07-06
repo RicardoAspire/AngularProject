@@ -2,3 +2,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.snackbar-success{
+    background: #A8FF3E ;
+    color: #10316B;
+}
+
+.snackbar-error{
+    background: red ;
+    color: black;
+}

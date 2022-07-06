@@ -38,6 +38,9 @@ export class KitchenComponent implements OnInit {
       .subscribe(
         (success)=>{
           this._snackBar.open('Status changed',undefined, {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['snackbar-success'],
             duration: 2000
           })
           this.ngOnInit();

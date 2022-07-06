@@ -60,6 +60,9 @@ export class BillsComponent implements OnInit {
     .subscribe(
       (success)=>{
         this._snackBar.open('Bill created',undefined, {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: ['snackbar-success'],
           duration: 2000
         })
       },(error)=>{
