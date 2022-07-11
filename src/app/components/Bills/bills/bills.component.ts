@@ -23,8 +23,12 @@ export class BillsComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) { }
 
-  //Creation of the date and two form groups (bills form and date form)
   ngOnInit(): void {
+   this.datesCreation();
+  }
+  
+  //Creation of the date and two form groups (bills form and date form)
+  datesCreation(): void{
     const now = new Date();
     if(now.getMonth() < 10){    
       this.startDate = now.getFullYear()+'-0'+(now.getMonth()+1)+'-'+now.getDate();

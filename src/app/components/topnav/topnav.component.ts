@@ -39,7 +39,7 @@ export class TopnavComponent implements OnInit {
   logOut(){
     localStorage.removeItem('token');    
     this.router.navigate(['login']);
-    this.ngOnInit();
+    this.ngOnInit();    
   }
 
 }

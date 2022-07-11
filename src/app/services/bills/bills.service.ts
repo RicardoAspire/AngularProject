@@ -29,5 +29,4 @@ export class BillsService {
     };
     return this.httpClient.post<newBill>('/api/bills',bodyRequest);
   }
-
 }
