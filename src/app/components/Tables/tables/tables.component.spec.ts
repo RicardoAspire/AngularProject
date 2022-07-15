@@ -40,4 +40,16 @@ describe('TablesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Table name field is required',()=>{
+    var tableField = component.tablesForm.get('table_name');
+    tableField!.setValue('');
+    expect(tableField!.valid).toBeFalse()
+  });
+
+  it('Table id to delete field is required',()=>{
+    var tableField = component.deleteTableForm.get('tableId');
+    tableField!.setValue('');
+    expect(tableField!.valid).toBeFalse()
+  });
 });

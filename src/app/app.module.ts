@@ -65,7 +65,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSnackBarModule,
     MatToolbarModule,
     MatDialogModule,
-    MatSidenavModule
+    MatSidenavModule,
   ],
   providers: [
     HttpClient,

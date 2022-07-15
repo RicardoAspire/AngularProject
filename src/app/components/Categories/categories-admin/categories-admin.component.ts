@@ -36,7 +36,7 @@ export class CategoriesAdminComponent implements OnInit {
       'category_name': new FormControl('',Validators.required),
     });
     this.deleteCategoryForm = this.fb.group({
-      'categoryId': new FormControl('')
+      'categoryId': new FormControl('',Validators.required)
     })
   }
   

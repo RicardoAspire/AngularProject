@@ -82,4 +82,16 @@ describe('BillsComponent', () => {
     component.searchByDates(form);
     expect(spy).toHaveBeenCalledOnceWith('/bills-details/0/0');
   });
+
+  it('Desciption field is required',()=>{
+    var descriptionField = component.billsForm.get('description');
+    descriptionField!.setValue('');
+    expect(descriptionField!.valid).toBeFalse()
+  });
+
+  it('Cost field is required',()=>{
+    var descriptionField = component.billsForm.get('cost');
+    descriptionField!.setValue('');
+    expect(descriptionField!.valid).toBeFalse()
+  });
 });

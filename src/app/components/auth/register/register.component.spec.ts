@@ -37,5 +37,4 @@ describe('RegisterComponent', () => {
   xit('should create', () => {
     expect(component).toBeTruthy();
   });
-  
 });

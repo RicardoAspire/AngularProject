@@ -21,7 +21,6 @@ const id = '2';
 describe('OrdersService', () => {
   let service: OrdersService;
   let httpClient: HttpClient;
-  let httpTestingController: HttpTestingController;
   let httpMock: HttpTestingController;
   
   beforeEach(() => {
@@ -33,7 +32,6 @@ describe('OrdersService', () => {
     service = TestBed.inject(OrdersService);
     httpMock = TestBed.inject(HttpTestingController);
     httpClient = TestBed.get(HttpClient);
-    httpTestingController = TestBed.get(HttpTestingController);
   });
 
   it('should be created', inject([OrdersService], (service: OrdersService) => {

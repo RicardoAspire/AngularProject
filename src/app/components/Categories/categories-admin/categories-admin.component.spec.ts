@@ -40,4 +40,16 @@ describe('CategoriesAdminComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Category name field is required',()=>{
+    var nameField = component.categoryForm.get('category_name');
+    nameField!.setValue('');
+    expect(nameField!.valid).toBeFalse()
+  });
+
+  it('Category to delete field is required',()=>{
+    var nameField = component.deleteCategoryForm.get('categoryId');
+    nameField!.setValue('');
+    expect(nameField!.valid).toBeFalse()
+  });
 });

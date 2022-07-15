@@ -52,7 +52,7 @@ export class ProductsComponent implements OnInit {
       'stock': new FormControl('',Validators.required),
     });
     this.deleteProductForm = this.fb.group({
-      'productId': new FormControl('')
+      'productId': new FormControl('',Validators.required)
     })
   }
 

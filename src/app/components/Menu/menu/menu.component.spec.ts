@@ -46,4 +46,22 @@ describe('MenuComponent', () => {
   xit('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  xit('New order, product field is required',()=>{
+    var orderField = component.orderForm.get('product_id');
+    orderField!.setValue('');
+    expect(orderField!.valid).toBeFalse()
+  });
+
+  xit('New order, amount field is required',()=>{
+    var amountField = component.orderForm.get('amount');
+    amountField!.setValue('');
+    expect(amountField!.valid).toBeFalse()
+  });
+
+  xit('New order, table_id field is required',()=>{
+    var tableField = component.orderForm.get('table_id');
+    tableField!.setValue('');
+    expect(tableField!.valid).toBeFalse()
+  });
 });

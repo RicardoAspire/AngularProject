@@ -42,4 +42,40 @@ describe('ProductsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('New product, name field is required',()=>{
+    var nameeField = component.productForm.get('name');
+    nameeField!.setValue('');
+    expect(nameeField!.valid).toBeFalse()
+  });
+
+  it('New product, description field is required',()=>{
+    var descriptionField = component.productForm.get('description');
+    descriptionField!.setValue('');
+    expect(descriptionField!.valid).toBeFalse()
+  });
+
+  it('New product, category field is required',()=>{
+    var categoryField = component.productForm.get('category_id');
+    categoryField!.setValue('');
+    expect(categoryField!.valid).toBeFalse()
+  });
+  
+  it('New product, price field is required',()=>{
+    var priceField = component.productForm.get('price');
+    priceField!.setValue('');
+    expect(priceField!.valid).toBeFalse()
+  });
+
+  it('New product, stock field is required',()=>{
+    var stockField = component.productForm.get('stock');
+    stockField!.setValue('');
+    expect(stockField!.valid).toBeFalse()
+  });
+
+  it('New product, productId field is required',()=>{
+    var productField = component.deleteProductForm.get('productId');
+    productField!.setValue('');
+    expect(productField!.valid).toBeFalse()
+  });
 });

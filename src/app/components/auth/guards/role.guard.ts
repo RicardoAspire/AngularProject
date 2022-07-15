@@ -21,7 +21,6 @@ export class RoleGuard implements CanActivate {
     if(token){
       const tokenDecoded:any = decode(token)
       const role = tokenDecoded.role;
-      console.log(role)
       if(this.authService.isAuth() && role == "Admin"){
         return true;
       }else if(!this.authService.isAuth() || role != expectedRole){

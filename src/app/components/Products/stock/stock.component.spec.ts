@@ -43,4 +43,10 @@ describe('StockComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('Stock amount field is required',()=>{
+    var amountField = component.stockForm.get('stock_amount');
+    amountField!.setValue('');
+    expect(amountField!.valid).toBeFalse()
+  });
 });
